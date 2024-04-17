@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../GAME_CSS/TicTacToe2.css">
+    <title>Tic Tac Toe</title>
+
+    <script>
+        window.onload = function() {
+            document.body.style.zoom = "90%";
+        };
+    </script>
+
+</head>
+<body>
+    
+    <div class="game-container">
+        <br>
+        <div class="heading-container">
+            <pre><marquee scrollamount = 29><h1>Welcome To J.A.R.V.I.S ARENA</h1></pre></marquee>
+        </div>
+    </div>
+
+    <div class="message-container">
+        <br>
+        <pre><h1>TIC TAC TOE</h1></pre>
+    </div>
+
+    <div class="input-container">
+        <br>
+        <div class="players">
+            <label id="player1" for="player1">Player 1 (X):</label>
+            <input type="text" id="input_player1" placeholder="Enter Name" oninput="changeBackgroundColor(this)">
+            <label id="player2" for="player2">Player 2 (O):</label>
+            <input type="text" id="input_player2" placeholder="Enter Name" oninput="changeBackgroundColor(this)">
+        </div>
+        <br>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            var player1Name = document.getElementById('input_player1').value;
+            var player2Name = document.getElementById('input_player2').value;
+
+            if (player1Name === '' || player2Name === '') {
+                alert('Please enter names for both players');
+                return;
+            }
+
+            // Store player names in sessionStorage to pass to the next page
+            sessionStorage.setItem('player1Name', player1Name);
+            sessionStorage.setItem('player2Name', player2Name);
+
+            // Open TicTacToe.html in a new tab or window
+            window.open('TicTacToe1.html', '_blank'); 
+        }
+
+        function changeBackgroundColor(input) {
+            input.style.backgroundColor = 'lightblue';
+        }
+    </script>
+    <script src="../GAME_JS/TicTacToe2.js"></script> 
+</body> 
+</html>
